@@ -1,0 +1,137 @@
+[
+  {
+    "id": "REV-ACCESS-001",
+    "platform": "both",
+    "severity": "P1",
+    "title": "Reviewer access/test account issue",
+    "patterns": [
+      "test account",
+      "provide.*credential",
+      "unable to sign in",
+      "cannot login",
+      "guest account",
+      "demo account"
+    ],
+    "fixes": [
+      "Provide stable reviewer credentials with non-expiring password.",
+      "Document exact login steps and environment in review notes.",
+      "Add fallback account if provisioning automation fails."
+    ],
+    "evidence": [
+      "Updated review notes with login walkthrough.",
+      "Credential CSV with role and notes.",
+      "Smoke test run proving successful login."
+    ]
+  },
+  {
+    "id": "META-001",
+    "platform": "both",
+    "severity": "P2",
+    "title": "Metadata/listing mismatch",
+    "patterns": [
+      "metadata",
+      "misleading",
+      "inaccurate",
+      "description does not",
+      "screenshots"
+    ],
+    "fixes": [
+      "Align store copy and screenshots to current app behavior.",
+      "Remove claims not verifiable in the submitted build.",
+      "Regenerate release notes with feature-level changes."
+    ],
+    "evidence": [
+      "Before/after store listing diff.",
+      "Updated screenshots from current build."
+    ]
+  },
+  {
+    "id": "POLICY-PRIVACY-001",
+    "platform": "both",
+    "severity": "P1",
+    "title": "Privacy/compliance declaration mismatch",
+    "patterns": [
+      "privacy",
+      "data safety",
+      "data collection",
+      "declaration",
+      "user data"
+    ],
+    "fixes": [
+      "Reconcile declared data collection with actual runtime behavior.",
+      "Update privacy policy URL and policy answers together.",
+      "Add explicit data handling notes for reviewer."
+    ],
+    "evidence": [
+      "Policy answer matrix and source-of-truth mapping.",
+      "Updated privacy policy link and revision date."
+    ]
+  },
+  {
+    "id": "UI-SCREEN-001",
+    "platform": "both",
+    "severity": "P1",
+    "title": "Screen size/resolution or layout issue",
+    "patterns": [
+      "screen",
+      "resolution",
+      "layout",
+      "ui issue",
+      "not optimized",
+      "overlap"
+    ],
+    "fixes": [
+      "Retest on small/medium/large phone and tablet profiles.",
+      "Fix clipping, safe-area, and orientation regressions.",
+      "Attach repro-proof screenshots in response notes."
+    ],
+    "evidence": [
+      "Device-matrix test results.",
+      "Annotated screenshots of corrected UI."
+    ]
+  },
+  {
+    "id": "PKG-ID-001",
+    "platform": "android",
+    "severity": "P0",
+    "title": "Package/version/signing configuration issue",
+    "patterns": [
+      "package",
+      "applicationid",
+      "versioncode",
+      "signing",
+      "invalid bundle"
+    ],
+    "fixes": [
+      "Correct package identifiers and versioning in Gradle and store metadata.",
+      "Validate release signing configuration and keystore alignment.",
+      "Rebuild and verify artifact identity before re-upload."
+    ],
+    "evidence": [
+      "Gradle config snippet with final identifiers.",
+      "Build artifact verification output."
+    ]
+  },
+  {
+    "id": "IOS-GUIDELINE-001",
+    "platform": "ios",
+    "severity": "P1",
+    "title": "Apple guideline functional issue",
+    "patterns": [
+      "guideline",
+      "2.1",
+      "performance",
+      "bug",
+      "app completeness"
+    ],
+    "fixes": [
+      "Reproduce reviewer scenario and patch stability/flow issues.",
+      "Add deterministic repro and test steps to review notes.",
+      "Confirm fixed behavior on release candidate build."
+    ],
+    "evidence": [
+      "Crash-free smoke test output.",
+      "Release notes listing corrected reviewer path."
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "app": {
+    "app_id": "com.company.app",
+    "app_name": "Company App",
+    "platforms": ["ios", "android"]
+  },
+  "contact": {
+    "name": "Release Owner",
+    "email": "release-owner@company.com",
+    "phone": "+1-000-000-0000"
+  },
+  "authentication": {
+    "requires_login": true
+  },
+  "test_account": {
+    "provision_command": "./scripts/provision_review_account.sh",
+    "fallback_accounts": [
+      {
+        "username": "reviewer@company.com",
+        "password": "replace-before-submit",
+        "role": "reviewer",
+        "notes": "Non-expiring reviewer account"
+      }
+    ]
+  },
+  "policy": {
+    "privacy_policy_url": "https://example.com/privacy",
+    "support_url": "https://example.com/support",
+    "account_deletion_url": "https://example.com/delete-account"
+  },
+  "fastlane": {
+    "ios_lane": "release_ios",
+    "android_lane": "release_android"
+  },
+  "testing": {
+    "maestro_flows": [
+      "maestro/smoke-launch.yaml",
+      "maestro/smoke-auth.yaml"
+    ],
+    "device_matrix": [
+      "iPhone SE (3rd gen)",
+      "iPhone 15 Pro Max",
+      "Pixel 6",
+      "Pixel Tablet"
+    ]
+  }
+}
